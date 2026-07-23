@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editkaro — Motion & Film Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.4.10/tailwind.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[class~="light"]'],
+      theme: {
+        extend: {
+          colors: {
+            ink: 'var(--ink)',
+            bone: 'var(--bone)',
+            cobalt: 'var(--cobalt)',
+            olive: 'var(--olive)',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            sans: ['Space Grotesk', 'Inter', 'sans-serif'],
+          },
+          transitionTimingFunction: {
+            'power3-out': 'var(--ease-power3-out)',
+            'power4-out': 'var(--ease-power4-out)',
+            'back-out': 'var(--ease-back-out)',
+          },
+          transitionDuration: {
+            fast: 'var(--dur-fast)',
+            base: 'var(--dur-base)',
+            slow: 'var(--dur-slow)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="intro-overlay">
+    <div class="word display italic">Drift In</div>
+  </div>
+  <div id="page-transition"></div>
+
+  <canvas id="blob-canvas"></canvas>
+  <div class="bg-chapter" id="bgChapter"></div>
+  <div class="bg-parallax" id="bgParallax"></div>
+  <div class="grain"></div>
+
+  <div id="scrollbar-track">
+    <div id="scrollbar-fill"></div>
+  </div>
+  <canvas id="trail-canvas"></canvas>
+
+  <div id="viewfinder"><img id="vf-img" src="" alt="" />
+    <div class="vf-label" id="vf-label">VIEW</div>
+  </div>
+  <div id="dot"></div>
+
+  <button id="sound-toggle" type="button" aria-label="Toggle ambient sound">
+    <div class="wave"><i></i><i></i><i></i><i></i></div>
+  </button>
+
+  <header id="header">
+    <div class="logo">DRIFT</div>
+    <nav>
+      <ul>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#reel">Reel</a></li>
+        <li><a href="#about">Studio</a></li>
+        <li><a href="#contact" class="enquire">Contact</a></li>
+        <li class="theme-item">
+          <button id="theme-toggle" type="button" aria-label="Toggle light and dark theme">
+            <span id="theme-icon">☾</span><span id="theme-label">Dark</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+    <section id="hero">
+    <div class="marquee-row">
+      <div class="marquee-track fwd">
+        <span class="o">Capture</span><span>Motion</span><span class="o">Capture</span><span>Motion</span>
+        <span class="o">Capture</span><span>Motion</span><span class="o">Capture</span><span>Motion</span>
+        <span class="o">Capture</span><span>Motion</span><span class="o">Capture</span><span>Motion</span>
+      </div>
+    </div>
+    <div class="marquee-row">
+      <div class="marquee-track rev">
+        <span>Motion</span><span class="o">Studio</span><span>Motion</span><span class="o">Studio</span>
+        <span>Motion</span><span class="o">Studio</span><span>Motion</span><span class="o">Studio</span>
+        <span>Motion</span><span class="o">Studio</span><span>Motion</span><span class="o">Studio</span>
+      </div>
+    </div>
+    <div class="hero-sub">
+      <div class="reveal-mask">
+        <p>DRIFT is a motion and film studio working with brands who want their story to move — literally. We shoot,
+          edit, and animate campaigns that hold attention past the scroll.</p>
+      </div>
+      <div class="hero-meta">
+        <div>Est.<span>2018</span></div>
+        <div>Based<span>Lisbon / Remote</span></div>
+        <div>Status<span>Booking Q1</span></div>
+      </div>
+    </div>
+    <div class="scroll-cue">
+      <div class="bar"></div>Scroll
+    </div>
+    <div class="floaters"><span class="floater f1"></span><span class="floater f2"></span><span
+        class="floater f3"></span></div>
+  </section>
+
+  <section class="pin-wrap sticky-section" id="story" data-chapters="#0a0808,#0f1524,#241a10,#12161a" style="background-image: url('E:\image_part_001(1).jpg');
+    background-size: cover;
+    background-position: bottom;">
+    <div class="pin-stage">
+      <div class="hero-card">
+        <div class="card-media media-a">
+          <div class="media-line"></div>
+        </div>
+        <div class="card-glow"></div>
+        <div class="tag">Reel · 2016 — 2026</div>
+        <div class="card-title">Frames<span class="serif">in flux.</span></div>
+        <div class="card-foot"><span>Direction · Design · Motion</span><span>01 / 03</span></div>
+      </div>
+      <div class="pillar pillar-1">
+        <div class="num">01 — Craft</div>
+        <h3>Every frame<br />is a decision.</h3>
+        <p>We obsess over easing curves, timing, and weight until motion stops feeling designed and starts feeling
+          inevitable.</p>
+      </div>
+      <div class="pillar pillar-2">
+        <div class="num">02 — Story</div>
+        <h3>Rhythm carries<br />the narrative.</h3>
+        <p>Pacing is our language. We choreograph attention across seconds so a message lands with the emotional beat it
+          deserves.</p>
+      </div>
+      <div class="pillar pillar-3">
+        <div class="num">03 — Systems</div>
+        <h3>Motion that<br />scales cleanly.</h3>
+        <p>Reusable motion systems and tokens keep a brand alive and consistent across every screen, platform, and
+          moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pin-wrap sticky-section" id="process" data-chapters="#12161a,#101c22,#0d222a,#0a1a1f" style="background-image: url('E:\image_part_002(1).jpg');
+    background-size: cover;
+    background-position: top;">
+    <div class="pin-stage">
+      <div class="hero-card">
+        <div class="card-media media-b">
+          <div class="media-line"></div>
+        </div>
+        <div class="card-glow"></div>
+        <div class="tag">How We Work</div>
+        <div class="card-title">From brief<span class="serif">to motion.</span></div>
+        <div class="card-foot"><span>Discover · Design · Deliver</span><span>02 / 03</span></div>
+      </div>
+      <div class="pillar pillar-1">
+        <div class="num">Phase 01 — Listen</div>
+        <h3>We start<br />with intent.</h3>
+        <p>Before a single keyframe, we map the feeling a brand needs to earn and the moment motion should own.</p>
+      </div>
+      <div class="pillar pillar-2">
+        <div class="num">Phase 02 — Choreograph</div>
+        <h3>We design<br />the timing.</h3>
+        <p>Storyboards become motion studies. We prototype easing and rhythm early, so the team feels the beat before
+          polish.</p>
+      </div>
+      <div class="pillar pillar-3">
+        <div class="num">Phase 03 — Ship</div>
+        <h3>We deliver<br />it living.</h3>
+        <p>Final frames arrive with tokens, specs, and Lottie — motion engineers can implement without losing a
+          millisecond.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pin-wrap sticky-section" id="studio" data-chapters="#0a1a1f,#1a0f22,#221a10,#191512" style="background-image: url('E:\image_part_003(1).jpg');
+    background-size: cover;
+    background-position: top;">
+    <div class="pin-stage">
+      <div class="hero-card">
+        <div class="card-media media-c">
+          <div class="media-line"></div>
+        </div>
+        <div class="card-glow"></div>
+        <div class="tag">The Studio</div>
+        <div class="card-title">A small room<span class="serif">of specialists.</span></div>
+        <div class="card-foot"><span>Nine people · Two cities</span><span>03 / 03</span></div>
+      </div>
+      <div class="pillar pillar-1">
+        <div class="num">Philosophy</div>
+        <h3>Restraint over<br />spectacle.</h3>
+        <p>We believe the best motion is nearly invisible — you feel the smoothness long before you notice the
+          technique.</p>
+      </div>
+      <div class="pillar pillar-2">
+        <div class="num">People</div>
+        <h3>Directors who<br />animate.</h3>
+        <p>No hand-offs between thinkers and makers. Everyone who shapes the idea also shapes the final frame.</p>
+      </div>
+      <div class="pillar pillar-3">
+        <div class="num">Practice</div>
+        <h3>Fewer, deeper<br />partnerships.</h3>
+        <p>We take on a handful of projects a year so each one gets the obsession — and the time — to be right.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="eyebrow">Selected Work</div>
+    <div class="work-head">
+      <h2 class="display">Recent<br /><em>projects.</em></h2>
+      <div class="work-count">06 — Featured</div>
+    </div>
+    <div class="project-list">
+      <div class="project-row" data-img="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=60"
+        data-label="Film">
+        <div class="idx">01</div>
+        <h3>Northline — Brand Film</h3>
+        <div class="tags"><span>Direction</span><span>Edit</span></div>
+        <div class="year">2025</div>
+      </div>
+      <div class="project-row" data-img="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=60"
+        data-label="Motion">
+        <div class="idx">02</div>
+        <h3>Auric — Product Launch</h3>
+        <div class="tags"><span>Animation</span><span>Sound</span></div>
+        <div class="year">2025</div>
+      </div>
+      <div class="project-row" data-img="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=600&q=60"
+        data-label="Campaign">
+        <div class="idx">03</div>
+        <h3>Verdant — Retail Campaign</h3>
+        <div class="tags"><span>Direction</span><span>Color</span></div>
+        <div class="year">2024</div>
+      </div>
+      <div class="project-row" data-img="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=60"
+        data-label="Doc">
+        <div class="idx">04</div>
+        <h3>Halcyon — Mini Documentary</h3>
+        <div class="tags"><span>Story</span><span>Edit</span></div>
+        <div class="year">2024</div>
+      </div>
+      <div class="project-row" data-img="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=60"
+        data-label="Motion">
+        <div class="idx">05</div>
+        <h3>Oskar & Fine — Identity Loop</h3>
+        <div class="tags"><span>Animation</span></div>
+        <div class="year">2023</div>
+      </div>
+      <div class="project-row" data-img="https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=600&q=60"
+        data-label="Film">
+        <div class="idx">06</div>
+        <h3>Ferro — Sonic Identity Film</h3>
+        <div class="tags"><span>Direction</span><span>Sound</span></div>
+        <div class="year">2023</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reel">
+    <div class="reel-track">
+      <span>Showreel</span><span class="solid">2026</span><span>Showreel</span><span class="solid">2026</span>
+      <span>Showreel</span><span class="solid">2026</span><span>Showreel</span><span class="solid">2026</span>
+    </div>
+    <div class="center-btn">Play<br />Reel ▸</div>
+  </section>
+
+  <section id="awards">
+    <div class="eyebrow">Recognition</div>
+    <div class="work-head">
+      <h2 class="display">Noted &amp;<br /><em class="glitch-accent">awarded.</em></h2>
+      <div class="work-count">06 — Honors</div>
+    </div>
+    <div class="award-grid">
+      <div class="award-card"><span class="yr">2025</span>
+        <div class="badge">A</div>
+        <h4>Awwwards — Site of the Day</h4>
+        <p>Northline brand film microsite, recognized for pacing and typographic rhythm.</p>
+      </div>
+      <div class="award-card"><span class="yr">2025</span>
+        <div class="badge">FWA</div>
+        <h4>FWA — Motion Excellence</h4>
+        <p>Auric product launch loop, cited for choreography between sound and motion.</p>
+      </div>
+      <div class="award-card"><span class="yr">2024</span>
+        <div class="badge">CSS</div>
+        <h4>CSSDA — Best UI Design</h4>
+        <p>Verdant retail campaign, praised for restraint and color discipline.</p>
+      </div>
+      <div class="award-card"><span class="yr">2024</span>
+        <div class="badge">D&amp;AD</div>
+        <h4>D&amp;AD — Wood Pencil</h4>
+        <p>Halcyon mini-documentary, honored for editorial pacing and sound design.</p>
+      </div>
+      <div class="award-card"><span class="yr">2023</span>
+        <div class="badge">ID</div>
+        <h4>Motion Design Awards</h4>
+        <p>Oskar &amp; Fine identity loop, recognized for a scalable, reusable motion system.</p>
+      </div>
+      <div class="award-card"><span class="yr">2023</span>
+        <div class="badge">SXSW</div>
+        <h4>SXSW — Sonic Branding</h4>
+        <p>Ferro sonic identity film, shortlisted for its integrated audio-motion language.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="categories">
+    <div class="eyebrow">Explore</div>
+    <div class="work-head">
+      <h2 class="display">Browse by<br /><em>category.</em></h2>
+      <div class="work-count">07 — Groups</div>
+    </div>
+
+    <div class="cat-list">
+      <a class="cat-row" data-img="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=60">
+        <span class="cat-name">AI <span class="cat-count">13</span></span>
+        <span class="cat-arrow">View works</span>
+      </a>
+      <a class="cat-row" data-img="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=60">
+        <span class="cat-name">Archi &amp; Design <span class="cat-count">12</span></span>
+        <span class="cat-arrow">View works</span>
+      </a>
+      <a class="cat-row" data-img="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=900&q=60">
+        <span class="cat-name">Beauty <span class="cat-count">16</span></span>
+        <span class="cat-arrow">View works</span>
+      </a>
+      <a class="cat-row" data-img="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=900&q=60">
+        <span class="cat-name">Characters <span class="cat-count">26</span></span>
+        <span class="cat-arrow">View works</span>
+      </a>
+      <a class="cat-row" data-img="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=60">
+        <span class="cat-name">Luxury <span class="cat-count">17</span></span>
+        <span class="cat-arrow">View works</span>
+      </a>
+      <a class="cat-row" data-img="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900&q=60">
+        <span class="cat-name">Set Design <span class="cat-count">13</span></span>
+        <span class="cat-arrow">View works</span>
+      </a>
+      <a class="cat-row" data-img="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=900&q=60">
+        <span class="cat-name">Typography <span class="cat-count">3</span></span>
+        <span class="cat-arrow">View works</span>
+      </a>
+    </div>
+  </section>
+
+  <div id="catImageFloat"><img src="" alt="" /></div>
+
+  <section id="testimonials">
+    <div class="eyebrow">Client Words</div>
+    <div class="work-head">
+      <h2 class="display">What people<br /><em>say after.</em></h2>
+      <div class="work-count">04 — Quotes</div>
+    </div>
+    <div class="testi-viewport" id="testiViewport">
+      <button class="testi-nav prev" id="testiPrev" aria-label="Previous testimonial">‹</button>
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-slide">
+          <div class="quote-mark">“</div>
+          <blockquote>DRIFT didn't just animate our launch — they choreographed the entire attention span of the room.
+          </blockquote>
+          <div class="who">— <b>Mara Silva</b>, Brand Director, Northline</div>
+        </div>
+        <div class="testi-slide">
+          <div class="quote-mark">“</div>
+          <blockquote>Every easing curve felt considered. It's the first campaign where motion carried more meaning than
+            the copy.</blockquote>
+          <div class="who">— <b>Jonas Reyk</b>, Founder, Auric</div>
+        </div>
+        <div class="testi-slide">
+          <div class="quote-mark">“</div>
+          <blockquote>They shipped a motion system, not just a video — our internal team is still using their tokens
+            today.</blockquote>
+          <div class="who">— <b>Elin Voss</b>, Creative Lead, Verdant</div>
+        </div>
+        <div class="testi-slide">
+          <div class="quote-mark">“</div>
+          <blockquote>Restraint was the whole point, and they nailed it — nothing moved without a reason to.
+          </blockquote>
+          <div class="who">— <b>Theo Marchetti</b>, Director, Halcyon</div>
+        </div>
+      </div>
+      <button class="testi-nav next" id="testiNext" aria-label="Next testimonial">›</button>
+    </div>
+    <div class="testi-dots" id="testiDots"></div>
+  </section>
+
+  <section id="about">
+    <p class="sentence display" id="aboutSentence">We're a small studio that treats every frame like it has to
+      earn the next one. No filler cuts, no stock motion — just rhythm, restraint, and a reason for the camera to move.
+    </p>
+    <div class="stats">
+      <div class="stat">Projects Shipped<b data-count="112">0</b></div>
+      <div class="stat">Studio Size<b data-count="9">0</b></div>
+      <div class="stat">Avg. Watch-through<b data-count="81" data-suffix="%">0%</b></div>
+    </div>
+  </section>
+
+  <section id="filmstrip">
+    <div class="filmstrip-stage">
+      <div class="filmstrip-head">
+        <div class="eyebrow">Behind the Reel</div>
+        <h2 class="display">Frame by<br /><em>frame.</em></h2>
+      </div>
+      <div class="filmstrip-track" id="filmTrack">
+        <div class="film-frame"><span class="frame-num">01</span><img
+            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=60" alt="" />
+          <div class="frame-cap">Northline — set, day one</div>
+        </div>
+        <div class="film-frame"><span class="frame-num">02</span><img
+            src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=700&q=60" alt="" />
+          <div class="frame-cap">Auric — lighting rig</div>
+        </div>
+        <div class="film-frame"><span class="frame-num">03</span><img
+            src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=700&q=60" alt="" />
+          <div class="frame-cap">Verdant — color test</div>
+        </div>
+        <div class="film-frame"><span class="frame-num">04</span><img
+            src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&q=60" alt="" />
+          <div class="frame-cap">Halcyon — final cut</div>
+        </div>
+        <div class="film-frame"><span class="frame-num">05</span><img
+            src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=700&q=60" alt="" />
+          <div class="frame-cap">Oskar &amp; Fine — loop test</div>
+        </div>
+        <div class="film-frame"><span class="frame-num">06</span><img
+            src="https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=700&q=60" alt="" />
+          <div class="frame-cap">Ferro — sound stage</div>
+        </div>
+        <div class="film-frame"><span class="frame-num">07</span><img
+            src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=700&q=60" alt="" />
+          <div class="frame-cap">Studio — grading suite</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="metrics" style="position: relative; overflow: hidden; padding: 60px 20px; color: white;">
+    <div style="
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url('E:/MyPrograms/VaultofCodes/VOC-Major1/metrics.jpg') center / cover no-repeat;
+    -webkit-mask-image: linear-gradient(to top, black 0%, transparent 100%);
+    mask-image: linear-gradient(to top, black 0%, transparent 100%);">
+    </div>
+
+    <p class="lead" style="position: relative; z-index: 1;">A decade spent turning static brands into things that <span
+        class="serif">move, breathe, and stay.</span></p>
+    <div class="metric-grid" style="position: relative; z-index: 1;">
+      <div class="metric">
+        <div class="val" data-count="10">0</div>
+        <div class="lbl">Years in motion</div>
+      </div>
+      <div class="metric">
+        <div class="val" data-count="140" data-suffix="+">0</div>
+        <div class="lbl">Films shipped</div>
+      </div>
+      <div class="metric">
+        <div class="val" data-count="27">0</div>
+        <div class="lbl">Global brands</div>
+      </div>
+      <div class="metric">
+        <div class="val" data-count="9">0</div>
+        <div class="lbl">Specialists</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTRO -->
+  <section class="outro" id="contact" style="position: relative; overflow: hidden; padding: 80px 20px; color: white;">
+    <div style="
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url('E:/MyPrograms/VaultofCodes/VOC-Major1/outro.jpg') center / cover no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  "></div>
+    <h2 style="position: relative; z-index: 1;">Let's set your<br /><span class="serif">brand in motion.</span></h2>
+    <p style="position: relative; z-index: 1;">Selective collaborations with studios and brands who believe movement is
+      meaning. Tell us what you're building.</p>
+    <a href="mailto:editkaro@edits.in" class="cta" style="position: relative; z-index: 1;">Start an enquiry</a>
+  </section>
+
+  <footer
+    style="background-image: url('E:/MyPrograms/VaultofCodes/VOC-Major1/actualfooterwall.jpg'); background-size: cover; background-position: top;">
+    <h2 class="display">Let's make it<br /><em>Move.</em></h2>
+    <div class="footer-bottom">
+      <div style="font-size: 20px;"><a
+          href="mailto:editkaro@edits.in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editkaro@edits.in</a></div>
+      <div class="footer-links"><a href="#">Instagram</a><a href="#">Vimeo</a><a href="#">LinkedIn</a></div>
+      <div>© 2026 Drift Studio</div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
